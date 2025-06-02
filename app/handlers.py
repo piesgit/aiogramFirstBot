@@ -2,11 +2,14 @@ from aiogram import F, Router # Импорт F
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
 
+import app.keyboards as kb
+
 router = Router()
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
-    await message.reply(f'Привет!\nВот твой ID: {message.from_user.id}\nИмя: {message.from_user.first_name}') # Получение и вывод ID пользователя
+    await message.reply(f'Привет!\nВот твой ID: {message.from_user.id}\nИмя: {message.from_user.first_name}',
+                        reply_markup=kb.main) # Получение и вывод ID пользователя
     
 @router.message(Command("help"))
 async def get_help(message: Message):
