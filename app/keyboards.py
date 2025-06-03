@@ -15,8 +15,9 @@ settings = InlineKeyboardMarkup(inline_keyboard=[
 
 cars = ['Tesla', 'Mercedes', 'BMW']
 
-async def inline_cars():
-    keyboard = ReplyKeyboardBuilder
-    for car in cars:
-        keyboard.add(KeyboardButton(text=car))
-    return keyboard.adjust(2).as_markup()
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+
+def inline_cars():
+    keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
+    keyboard.add(KeyboardButton("Tesla"), KeyboardButton("BMW"))
+    return keyboard
