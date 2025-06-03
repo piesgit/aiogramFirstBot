@@ -18,7 +18,7 @@ cars = ['Tesla', 'Mercedes', 'BMW']
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 async def inline_cars():
-    keyboard = ReplyKeyboardBuilder(resize_keyboard=True)
+    keyboard = ReplyKeyboardBuilder
     for car in cars:
         keyboard.add(KeyboardButton(text=car))
     return keyboard.adjust(2).as_markup()
