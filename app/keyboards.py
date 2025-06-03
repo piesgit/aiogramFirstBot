@@ -7,7 +7,7 @@ main = ReplyKeyboardMarkup(keyboard=[
     [KeyboardButton(text='Корзина'), KeyboardButton(text='Контакты')]
     
 ],
-                           resize_kyeboard=True,
+                           resize_keyboard=True,
                            input_field_placeholder='Выберие пункт меню.')
 settings = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='YouTube', url='https://youtube.com')]
@@ -18,7 +18,7 @@ cars = ['Tesla', 'Mercedes', 'BMW']
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
 async def inline_cars():
-    keyboard = ReplyKeyboardBuilder
+    keyboard = ReplyKeyboardBuilder()
     for car in cars:
         keyboard.add(KeyboardButton(text=car))
     return keyboard.adjust(2).as_markup()
