@@ -21,4 +21,5 @@ async def inline_cars():
     keyboard = InlineKeyboardBuilder()
     for car in cars:
         keyboard.add(InlineKeyboardButton(text=car, url='https://youtube.com'))
-    return keyboard.adjust(2).as_markup()
+        # 14:55, тут нельзя только текст, можно url и т. д.
+    return keyboard.adjust(2).as_markup() # урок 4, 14:40, adjust(2-3-4-5...), .as_markup() ОБЯЗАТЕЛЬНО
