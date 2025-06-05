@@ -1,6 +1,6 @@
 from aiogram import F, Router # Импорт F
 from aiogram.filters import CommandStart, Command
-from aiogram.types import Message
+from aiogram.types import Message, CallbackQuery
 
 import app.keyboards as kb
 
@@ -41,3 +41,7 @@ async def get_photo(message: Message):
 @router.message(F.photo)
 async def handle_photo(message: Message):
     await message.answer(f'ID фото: {message.photo[-1].file_id}')
+    
+@router.callback_query(F.data == 'catalog')
+async def catalog(callback: CallbackQuery):
+    await callback.message.answer('Привет!')
